@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+
+<StackPane xmlns = "http://javafx.com/javafx/25"
+           xmlns:fx = "http://javafx.com/fxml/1"
+           fx:controller = "app.MainController">
+
+    <HBox spacing = "30"
+          prefWidth = "1000"
+          prefHeight = "700"
+          styleClass = "mainContainer">
+
+        <!-- ========== LEFT SIDE ========== -->
+        <VBox spacing = "6" alignment = "CENTER" prefWidth = "400">
+            <VBox spacing = "10" alignment = "CENTER">
+                    <TextField fx:id = "startingLocation"
+                               promptText = "Start location"
+                               styleClass = "inputField"
+                               prefWidth = "400"/>
+                    <TextField fx:id = "endLocation"
+                           promptText = "End location"
+                           styleClass = "inputField"
+                           prefWidth = "400"/>
+                    <TextField fx:id = "departureTime"
+                               promptText = "Departure time"
+                               styleClass = "inputField"
+                               prefWidth = "400"/>
+            </VBox>
+            <Button fx:id = "goButton" text = "Go" styleClass = "go" onAction="#handleGoButton">>
+                <VBox.margin><Insets top="4" bottom="8"/></VBox.margin>
+            </Button>
+
+
+            <!-- Route Option 1 -->
+            <VBox fx:id = "route1" styleClass = "routeCard">
+                <HBox spacing = "10" alignment = "CENTER">
+                    <HBox spacing = "8" alignment = "CENTER_LEFT">
+                        <Label text = "Route" styleClass = "routeTitle"/>
+                        <Label text = "1" styleClass = "routeBadge"/>
+                    </HBox>
+                    <Region HBox.hgrow = "ALWAYS"/>
+                        <VBox alignment = "CENTER">
+                            <Label text = "Arrive By" styleClass = "arriveLabel"/>
+                            <Label fx:id = "route1Time" text="00:00" styleClass = "arriveTime"/>
+                        </VBox>
+                </HBox>
+            </VBox>
+
+            <!-- Route Option 2 -->
+            <VBox fx:id = "route2" styleClass = "routeCard">
+                <HBox spacing = "10" alignment = "CENTER">
+                    <HBox spacing = "8" alignment = "CENTER_LEFT">
+                        <Label text = "Route" styleClass = "routeTitle"/>
+                        <Label text = "2" styleClass = "routeBadge"/>
+                    </HBox>
+                    <Region HBox.hgrow = "ALWAYS"/>
+                        <VBox alignment = "CENTER">
+                            <Label text = "Arrive By" styleClass = "arriveLabel"/>
+                            <Label fx:id = "route2Time" text="00:00" styleClass = "arriveTime"/>
+                        </VBox>
+                </HBox>
+            </VBox>
+
+            <!-- Route Option 3 -->
+            <VBox fx:id = "route3" styleClass = "routeCard">
+                <HBox spacing = "10" alignment = "CENTER">
+                    <HBox spacing = "8" alignment = "CENTER_LEFT">
+                        <Label text = "Route" styleClass = "routeTitle"/>
+                        <Label text = "3" styleClass = "routeBadge"/>
+                    </HBox>
+                    <Region HBox.hgrow = "ALWAYS"/>
+                        <VBox alignment = "CENTER">
+                            <Label text = "Arrive By" styleClass = "arriveLabel"/>
+                            <Label fx:id = "route3Time" text="00:00" styleClass = "arriveTime"/>
+                        </VBox>
+                </HBox>
+            </VBox>
+
+            <!-- Route Steps Display Box -->
+            <!-- Route Steps Display Box (DYNAMIC) -->
+            <ScrollPane fitToWidth = "true"
+                        vbarPolicy = "NEVER"
+                        hbarPolicy = "NEVER"
+                        fx:id = "routeStepsScroll"
+                        styleClass = "routeStepsScroll">
+                <content>
+                    <VBox fx:id="routeStepsContainer"
+                          spacing="8"
+                          styleClass="routeStepsContainer"
+                          alignment="TOP_LEFT"/>
+                </content>
+            </ScrollPane>
+        </VBox>
+
+        <!-- ========== RIGHT SIDE ========== -->
+        <VBox spacing = "15" prefWidth = "800">
+            <HBox spacing = "12" alignment = "CENTER_RIGHT">
+                <Button fx:id = "outOfOrderButton"
+                        visible = "false"
+                        managed = "false"
+                        onAction = "#handleOutOfOrderButton"
+                        styleClass = "oooButton">
+                    <graphic>
+                    <ImageView fitWidth = "20" fitHeight = "20">
+                        <image><Image url = "@icons/road-circle-exclamation-solid.png"/></image>
+                    </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="routingButton"
+                        text="Routing"
+                        styleClass="modeButton"
+                        onAction="#handleRoutingMode"/>
+                <Button fx:id = "heatmapButton"
+                        text = "Heat Map"
+                        styleClass = "modeButton"
+                        onAction="#handleHeatmapMode"/>
+            </HBox>
+            <Pane fx:id = "mapContainer"
+                  styleClass = "mapContainer"/>
+        </VBox>
+
+    </HBox>
+
+
+    <!-- POPUP -->
+    <VBox fx:id = "oooPopup"
+          alignment = "CENTER"
+          visible = "false"
+          managed = "false"
+          spacing = "25"
+          styleClass = "oooPopup">
+
+          <Label text = "Would you like to mark this stop as out of order?"
+                 wrapText="true"
+                 styleClass = "oooPopupTitle"/>
+           <Label fx:id = "outOfOrderStopName"
+               text = "Bus stop name here"
+               wrapText="true"
+               styleClass = "oooPopupStopName"/>
+
+          <HBox spacing = "15" alignment = "CENTER">
+                <Button text = "Nevermind"
+                        onAction = "#handleOOOCancel"
+                        styleClass = "oooCancel"/>
+                <Button text = "Yes"
+                        onAction = "#handleOOOConfirm"
+                        styleClass = "oooConfirm"/>
+          </HBox>
+    </VBox>
+
+</StackPane>

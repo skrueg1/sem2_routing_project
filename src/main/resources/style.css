@@ -1,0 +1,268 @@
+.root {
+    -main-dark: #242423;
+    -secondary-dark: #333533;
+    -light: #E8EDDF;
+    -accent: #CB8589;
+    -border: #CFDBD5;
+    -fx-background-color: -secondary-dark;
+    -fx-font-family: "Jost*";
+    -fx-text-fill: -secondary-dark;
+}
+
+.mainContainer {
+    -fx-padding: 20;
+}
+
+/*********** LEFT SIDE ***********/
+
+/* User Input Fields */
+.inputField {
+    -fx-background-color: -light;
+    -fx-text-fill: -secondary-dark;
+    -fx-prompt-text-fill: -main-dark;
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-border-color: -border;
+    -fx-border-width: 2;
+    -fx-padding: 8 14;
+}
+
+.inputField:hover {
+    -fx-cursor: text;
+}
+
+.inputExtra {
+    -fx-text-fill: -light;
+    -fx-font-size: 14;
+}
+
+.go {
+    -fx-background-color: -accent;
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-padding: 3 30;
+    -fx-font-size: 12;
+    -fx-cursor: hand;
+    -fx-text-fill: -light;
+}
+
+.inputBox {
+    -fx-padding: 0 0 0 4;
+}
+
+.go:hover {
+    -fx-background-color: -border;
+    -fx-text-fill: -accent;
+}
+
+/* Input Fields Error Visualization */
+.inputError {
+    -fx-border-color: #a64646;
+    -fx-background-color: #e4d2cc;
+}
+
+.goError        {  -fx-background-color: #a64646; }
+.goError:hover  {  -fx-background-color: #a64646; }
+
+
+/* Route Options Cards */
+.routeCard {
+    -fx-background-color: -main-dark;
+    -fx-text-fill: -secondary-dark;
+    -fx-background-radius: 16;
+    -fx-border-radius: 16;
+    -fx-padding: 0 10;
+    -fx-cursor: hand;
+}
+
+.routeTitle {
+    -fx-font-size: 30;
+}
+
+.routeBadge {
+    -fx-background-color: -secondary-dark;
+    -fx-text-fill: -main-dark;
+    -fx-padding: 0 14;
+    -fx-font-size: 28;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+}
+
+.arriveLabel {
+    -fx-font-size: 14;
+    -fx-translate-y: 3;
+    -fx-padding: 0;
+}
+
+.arriveTime {
+    -fx-font-size: 24;
+    -fx-translate-y: -3;
+    -fx-padding: 0;
+}
+
+.routeCard.active {
+    -fx-background-color: -accent;
+    -fx-text-fill: -light;
+}
+
+.routeCard.active .routeTitle,
+.routeCard.active .arriveLabel,
+.routeCard.active .arriveTime {
+    -fx-text-fill: -light;
+}
+
+.routeCard.active .routeBadge {
+    -fx-background-color: -light;
+    -fx-text-fill: -accent;
+}
+
+/* Route Steps box */
+.routeStepsScroll {
+    -fx-background: transparent;
+    -fx-background-color: transparent;
+    -fx-background-radius: 16;
+    -fx-border-radius: 16;
+    -fx-padding: 0;
+    -fx-pref-height: 500;
+}
+.routeStepsScroll > .viewport {
+    -fx-background-color: -main-dark;
+    -fx-background-radius: 16;
+}
+
+.routeStepsScroll .corner,
+.routeStepsScroll .scroll-bar:vertical,
+.routeStepsScroll .scroll-bar:horizontal {
+    -fx-pref-width: 0;
+    -fx-pref-height: 0;
+    -fx-opacity: 0;
+    -fx-padding: 0;
+}
+
+.routeStepsScroll .scroll-bar,
+.routeStepsScroll .scroll-bar .track,
+.routeStepsScroll .scroll-bar .track-background,
+.routeStepsScroll .increment-button,
+.routeStepsScroll .decrement-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.routeStepsScroll .increment-arrow,
+.routeStepsScroll .decrement-arrow {
+    -fx-shape: "";
+    -fx-padding: 0;
+}
+
+.routeStepsContainer {
+    -fx-background-color: -main-dark;
+    -fx-background-radius: 16;
+    -fx-border-radius: 16;
+    -fx-padding: 20;
+}
+
+.stepIcon {
+    -fx-background-color: -accent;
+    -fx-background-radius: 6;
+    -fx-padding: 5;
+    -fx-min-width: 30;
+    -fx-min-height: 30;
+    -fx-alignment: center;
+}
+
+.stepText {
+    -fx-text-fill: -accent;
+    -fx-font-size: 12;
+    -fx-padding: 0 0 0 15;
+}
+
+/*********** RIGHT SIDE ***********/
+.oooButton {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+    -fx-cursor: hand;
+}
+
+.modeButton {
+    -fx-text-fill: -main-dark;
+    -fx-background-color: -light;
+    -fx-border-color: -border;
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-border-width: 2;
+    -fx-padding: 0 30;
+    -fx-font-size: 11;
+    -fx-cursor: hand;
+}
+
+.modeButton.active {
+    -fx-background-color: -accent;
+    -fx-border-color: -accent;
+}
+
+.mapContainer {
+    -fx-background-color: -secondary-dark;
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-border-color: -border;
+    -fx-border-width: 4;
+    -fx-pref-height: 800;
+}
+
+/*********** ALIGNMENT CHANGES FOR ROUTES ***********/
+
+.routeStepsContainer {
+    -fx-alignment: top-left;
+}
+
+.routeStepRow {
+    -fx-alignment: center-left;
+}
+
+/*********** OUT OF ORDER POPUP ***********/
+.oooPopup {
+    -fx-background-color: -secondary-dark;
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-padding: 65;
+    -fx-max-width: 550;
+    -fx-max-height: 375;
+}
+
+.oooPopupTitle {
+    -fx-text-fill: -light;
+    -fx-font-size: 26;
+    -fx-text-alignment: center;
+}
+
+.oooPopupStopName {
+    -fx-background-color: -main-dark;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-text-fill: -light;
+    -fx-font-size: 20;
+    -fx-padding: 15 30;
+    -fx-text-alignment: center;
+}
+
+.oooCancel,
+.oooConfirm {
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-padding: 6 30;
+}
+
+.oooCancel {
+    -fx-background-color: -light;
+    -fx-text-fill: -secondary-dark;
+}
+
+.oooConfirm {
+    -fx-background-color: -accent;
+    -fx-text-fill: -light;
+}
+
+.oooCancel:hover,
+.oooConfirm:hover {
+    -fx-cursor: hand;
+}
